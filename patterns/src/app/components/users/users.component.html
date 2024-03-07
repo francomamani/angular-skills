@@ -1,0 +1,33 @@
+<input type="search" [formControl]="searchControl" placeholder="search users" />
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (user of users; track $index) {
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>
+        <button (click)="remove(user.id)">Delete</button>
+        <button (click)="updateUser(user)">Update</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<div *ngIf="updating">
+  <form [formGroup]="userGroup" (submit)="update()">
+    <input type="text" formControlName="name" name="name" />
+    <input type="text" formControlName="age" name="age" />
+    <button type="submit">Update</button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<form>
+    <input type="search" appScape [formControl]="textControl" placeholder="search by name">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of people">
+                <td>{{ person.id }}</td>
+                <td>{{ person.name }}</td>
+                <td>{{ person.age }}</td>
+                <td><button (click)="delete(person.id)">delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</form>
