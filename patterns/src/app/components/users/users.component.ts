@@ -83,7 +83,6 @@ export class UsersComponent implements OnInit {
   remove(id: string): void {
     const removeUserCommand = new RemoveUserCommand(this.userRepository, id);
     this.executeCommand(removeUserCommand);
-    this
   }
 
   update(): void {
